@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jv portfolio — Juliana Vieira</title>
+<meta name="description" content="jv portfolio · Juliana Vieira — Portafolio de Animación 3D. Mi progresión de la Task 03 a la Task 07 y la entrega final en equipo Leyend-itas (Autodesk Maya, HumanIK, Unity, Three.js).">
+<meta name="author" content="Juliana Vieira">
+<meta property="og:title" content="jv portfolio — Juliana Vieira">
+<meta property="og:description" content="Juliana Vieira — Portafolio de Animación 3D · Universidad EAFIT">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f4ece0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23ff5b1f'/%3E%3Ctext x='32' y='41' font-family='Arial,sans-serif' font-weight='800' font-size='26' text-anchor='middle' fill='%231d1813'%3Ejv%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4ece0; --bg2:#fffaf3; --bg3:#eadfce; --ink:#1d1813; --muted:#6b5e50; --dim:#9a8b79;
+  --line:#d9cbb6; --accent:#ff5b1f; --accent-text:#c2410c; --accent-ink:#1d1813; --hot:#0f6e5f; --ok:#2f7d32;
+  --display:"Syne", "Arial Black", system-ui, sans-serif;
+  --body:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono:"Space Mono", ui-monospace, Consolas, monospace;
+  --r:22px; --gut:clamp(16px,4vw,48px); --max:1280px;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);overflow-x:hidden}
+img,video,canvas{max-width:100%;display:block}
+a{color:inherit}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase}
+.muted{color:var(--muted)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:8px 12px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.logo{font-family:var(--display);font-style:italic;font-weight:600;font-size:1.35rem;text-decoration:none;white-space:nowrap}
+.logo b{color:var(--accent);font-weight:inherit}
+.nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:8px 10px;border-radius:8px;color:var(--muted);white-space:nowrap}
+.nav a:hover,.nav a.on{color:var(--ink);background:var(--bg3)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--bg2);border-radius:999px;padding:8px 14px;cursor:pointer;font-size:.85rem;font-weight:600;white-space:nowrap;text-decoration:none;transition:border-color .15s,background .15s}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn kbd{font-family:var(--mono);font-size:.7rem;border:1px solid currentColor;border-radius:4px;padding:0 4px;opacity:.7}
+@media (max-width:860px){.nav{display:none}.top .btn.present{margin-left:auto}}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(48px,9vw,120px) 0 clamp(40px,6vw,72px);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero h1{font-family:var(--display);font-weight:300;font-size:clamp(3.6rem,15vw,12.5rem);line-height:.82;letter-spacing:-.045em;margin:0}
+.hero h1 em{font-style:italic;font-weight:700;color:var(--accent)}
+.hero .sub{font-family:var(--display);font-size:clamp(1.15rem,2.6vw,1.9rem);font-weight:400;margin:24px 0 0;max-width:22ch;line-height:1.2}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,5vw,64px);align-items:end;margin-top:clamp(28px,5vw,56px)}
+.hero p.lead{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--ink);max-width:60ch;margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.stats div{padding:16px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-family:var(--display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1}
+.stats span{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted);white-space:nowrap}
+.tag.me{border-color:var(--accent);color:var(--accent)}
+.tag.team{border-color:var(--hot);color:var(--hot)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+.notice{display:none;margin:20px 0 0;border:1px solid var(--hot);color:var(--ink);background:color-mix(in srgb,var(--hot) 12%,transparent);border-radius:var(--r);padding:14px 16px;font-size:.92rem}
+.notice.show{display:block}
+
+/* ---------- sections ---------- */
+section.block{padding:clamp(56px,8vw,112px) 0;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:12px 28px;align-items:end;margin-bottom:clamp(28px,4vw,48px)}
+.sec-num{font-family:var(--display);font-style:italic;font-size:clamp(3rem,8vw,6rem);line-height:.8;color:var(--accent);font-weight:300}
+.sec-head h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5vw,3.6rem);line-height:1;margin:0;letter-spacing:-.02em}
+.sec-head p{grid-column:2;margin:0;color:var(--muted);max-width:70ch}
+.rubric{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:6px}
+@media (max-width:640px){.sec-head{grid-template-columns:1fr}.sec-head p{grid-column:1}}
+
+/* ---------- curaduría ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:8px 14px;cursor:pointer;font-size:.88rem;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip .n{font-family:var(--mono);font-size:.7rem;opacity:.6;margin-left:4px}
+.timeline{position:relative;display:grid;grid-template-columns:repeat(8,1fr);gap:0;margin:8px 0 36px;padding-top:6px}
+.timeline:before{content:"";position:absolute;left:0;right:0;top:25px;height:1px;background:var(--line)}
+.tl{position:relative;background:none;border:0;cursor:pointer;text-align:left;padding:0 6px 0 0;min-width:0;transition:opacity .2s}
+.tl i{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--line);font-style:normal;font-family:var(--mono);font-size:.8rem;position:relative;z-index:1}
+.tl.final i{border-color:var(--hot);color:var(--hot)}
+.tl:hover i{border-color:var(--ink)}
+.tl span{display:block;margin-top:10px;font-size:.78rem;line-height:1.3;color:var(--muted);overflow-wrap:anywhere}
+.tl.off{opacity:.25}
+@media (max-width:760px){.timeline{grid-template-columns:repeat(4,1fr);row-gap:18px}.timeline:before{display:none}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:18px}
+.card{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);overflow:hidden;cursor:pointer;text-align:left;padding:0;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--ink);transform:translateY(-2px)}
+.card[hidden]{display:none}
+.thumb{aspect-ratio:16/9;background:#000;position:relative;overflow:hidden}
+.thumb video,.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb .num{position:absolute;left:14px;bottom:6px;font-family:var(--display);font-style:italic;font-size:3.4rem;line-height:1;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.thumb .placeholder{width:100%;height:100%;display:grid;place-items:center;background:repeating-linear-gradient(45deg,var(--bg3) 0 10px,var(--bg2) 10px 20px)}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-family:var(--display);font-weight:500;font-size:1.35rem;line-height:1.15;margin:0}
+.card p{margin:0;color:var(--muted);font-size:.92rem}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+
+/* ---------- breakdown ---------- */
+.bd{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));gap:18px}
+.bd article{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--bg2);display:flex;flex-direction:column;gap:10px}
+.bd h3{font-family:var(--display);font-weight:500;font-size:1.3rem;margin:0;line-height:1.2}
+.bd .what,.bd .why{margin:0;font-size:.95rem}
+.bd .lbl{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px}
+.bd .why .lbl{color:var(--hot)}
+.bd ul{margin:0;padding-left:18px;color:var(--muted);font-size:.9rem}
+.split-bar{display:flex;height:10px;border-radius:999px;overflow:hidden;margin-top:4px}
+.split-bar i{display:block}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.8rem;color:var(--muted)}
+.legend b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* ---------- process ---------- */
+.iter{border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);margin-bottom:22px;overflow:hidden}
+.iter header{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;padding:20px 22px;border-bottom:1px solid var(--line)}
+.iter header .k{font-family:var(--display);font-style:italic;font-size:2.4rem;line-height:1;color:var(--accent)}
+.iter header h3{font-family:var(--display);font-weight:500;font-size:clamp(1.2rem,2.4vw,1.6rem);margin:0;line-height:1.15;flex:1;min-width:220px}
+.iter .cols{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.iter .cols div{padding:18px 22px;border-right:1px solid var(--line);font-size:.93rem}
+.iter .cols div:last-child{border-right:0}
+.iter .cols b{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.iter .cols div:nth-child(1) b{color:var(--hot)}
+.iter .cols div:nth-child(2) b{color:var(--muted)}
+.iter .cols div:nth-child(3) b{color:var(--ok)}
+@media (max-width:820px){.iter .cols{grid-template-columns:1fr}.iter .cols div{border-right:0;border-bottom:1px solid var(--line)}.iter .cols div:last-child{border-bottom:0}}
+.cmp{padding:18px 22px 22px}
+.cmp-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.seg[hidden]{display:none}
+.seg button{border:0;background:transparent;border-radius:999px;padding:6px 12px;cursor:pointer;font-size:.82rem;font-weight:600;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.stages{display:grid;gap:12px}
+.stages.side{grid-template-columns:repeat(var(--n,2),1fr)}
+@media (max-width:760px){.stages.side{grid-template-columns:1fr}}
+.stage{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#000}
+.stage[hidden]{display:none}
+.stage video,.stage img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#000}
+.stage figcaption{background:var(--bg3);padding:8px 12px;font-size:.82rem;display:flex;gap:8px;align-items:center}
+.stage figcaption .tag{flex:none}
+
+/* ---------- viewer ---------- */
+.viewer{border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);overflow:hidden;display:flex;flex-direction:column}
+.v-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px;border-bottom:1px solid var(--line)}
+.v-top select{flex:1 1 240px;min-width:0;background:var(--bg3);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.v-stage{position:relative;height:clamp(320px,58vh,620px);background:#141413;touch-action:none}
+.v-canvas{position:absolute;inset:0}
+.v-canvas canvas{width:100%!important;height:100%!important}
+.v-status{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(13,13,11,.88);border:1px solid var(--line);border-radius:12px;padding:14px 18px;max-width:min(90%,460px);text-align:center;font-size:.9rem;pointer-events:none}
+.v-status[hidden]{display:none}
+.v-status.err{border-color:var(--hot)}
+.v-status .bar{height:3px;background:var(--line);border-radius:3px;margin-top:10px;overflow:hidden}
+.v-status .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .15s}
+.v-drop{position:absolute;inset:10px;border:2px dashed var(--accent);border-radius:12px;display:none;place-items:center;background:rgba(91,132,255,.12);font-weight:600;pointer-events:none}
+.viewer.dragging .v-drop{display:grid}
+.v-hud{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:.68rem;color:var(--muted);background:rgba(13,13,11,.7);padding:4px 8px;border-radius:6px;pointer-events:none;max-width:calc(100% - 20px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.v-controls{display:grid;gap:10px;padding:12px}
+.v-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.v-row.tl-row{flex-wrap:nowrap}
+.v-row input[type=range]{flex:1;min-width:0;accent-color:var(--accent)}
+.v-time{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:96px;text-align:right}
+.ibtn{display:inline-grid;place-items:center;min-width:38px;height:38px;border:1px solid var(--line);background:var(--bg3);border-radius:10px;cursor:pointer;padding:0 10px;font-size:.82rem;font-weight:600}
+.ibtn:hover{border-color:var(--ink)}
+.ibtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.ibtn:disabled{opacity:.35;cursor:not-allowed}
+.v-row select{background:var(--bg3);border:1px solid var(--line);border-radius:8px;padding:8px 10px;max-width:100%;min-width:0;flex:1 1 180px}
+.v-row .sep{width:1px;height:26px;background:var(--line);margin:0 2px}
+.upload{position:relative;overflow:hidden}
+.upload input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.inspector-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+.inspector-layout>*,.viewer,.v-controls,.v-row{min-width:0}
+.v-canvas canvas{position:absolute;inset:0}
+@media (max-width:520px){.seg button{padding:6px 9px;font-size:.78rem}.ibtn{padding:0 8px;font-size:.78rem}}
+.inspector-side{border:1px solid var(--line);border-radius:var(--r);padding:18px;background:var(--bg2);font-size:.9rem}
+.inspector-side h3{font-family:var(--display);font-weight:500;margin:0 0 8px;font-size:1.2rem}
+.inspector-side dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:0}
+.inspector-side dt{font-family:var(--mono);font-size:.72rem;color:var(--accent)}
+.inspector-side dd{margin:0;color:var(--muted)}
+@media (max-width:980px){.inspector-layout{grid-template-columns:1fr}}
+
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;z-index:60;display:none;background:rgba(5,5,4,.82);backdrop-filter:blur(6px);padding:clamp(0px,2vw,24px)}
+.modal.open{display:block}
+.modal-box{max-width:1380px;height:100%;margin:0 auto;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;overflow:hidden}
+.modal-head{display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.modal-head .n{font-family:var(--display);font-style:italic;font-size:2.2rem;line-height:1;color:var(--accent)}
+.modal-head h3{font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,2.2vw,1.5rem);margin:0;line-height:1.15;flex:1;min-width:0}
+.tabs{display:flex;gap:4px;padding:10px 18px 0;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tabs button{border:0;background:none;padding:10px 14px;cursor:pointer;font-weight:600;font-size:.88rem;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabs button:disabled{opacity:.3;cursor:not-allowed}
+.modal-main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 340px;overflow:hidden}
+.modal-pane{overflow:auto;padding:18px;min-width:0}
+.modal-main>*{min-width:0}
+@media (max-width:640px){#mAut{display:none}.modal-head{padding:10px 12px;gap:10px}.modal-head .n{font-size:1.6rem}.modal-pane,.modal-side{padding:12px}}
+.modal-side{border-left:1px solid var(--line);overflow:auto;padding:18px;font-size:.92rem}
+.modal-side h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:18px 0 6px}
+.modal-side h4:first-child{margin-top:0}
+.modal-side ul{padding-left:18px;margin:0;color:var(--muted)}
+.modal-side p{margin:0 0 8px}
+@media (max-width:980px){.modal-main{grid-template-columns:1fr;overflow:auto}.modal-pane{overflow:visible}.modal-side{border-left:0;border-top:1px solid var(--line);overflow:visible}}
+.vid-main{border-radius:10px;overflow:hidden;background:#000;border:1px solid var(--line)}
+.vid-main video{width:100%;max-height:62vh;background:#000}
+.vid-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:12px}
+.shot{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg2);cursor:zoom-in;padding:0;text-align:left}
+.shot img{width:100%;aspect-ratio:4/3;object-fit:cover;background:#000}
+.shot span{display:block;padding:8px 10px;font-size:.8rem;color:var(--muted)}
+.docs{display:grid;gap:10px}
+.doc{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:14px;text-decoration:none;background:var(--bg2)}
+.doc:hover{border-color:var(--ink)}
+.doc .ext{font-family:var(--mono);font-size:.7rem;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:2px 6px}
+.empty{color:var(--muted);border:1px dashed var(--line);border-radius:10px;padding:24px;text-align:center}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.94);display:none;grid-template-rows:1fr auto;padding:16px}
+.lb.open{display:grid}
+.lb img{max-width:100%;max-height:calc(100vh - 90px);margin:auto;object-fit:contain}
+.lb .lb-bar{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;padding-top:10px}
+.lb .lb-bar span{font-size:.88rem;color:var(--muted);text-align:center}
+
+/* ---------- credits ---------- */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg2);position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+tr.me td{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+td code{font-family:var(--mono);font-size:.78rem;overflow-wrap:anywhere}
+.inv-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
+.inv-tools input{flex:1 1 220px;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;min-width:0}
+.cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:900px){.cred-grid{grid-template-columns:1fr}}
+h3.sub{font-family:var(--display);font-weight:500;font-size:1.5rem;margin:40px 0 14px}
+.closing{font-family:var(--display);font-size:clamp(1.3rem,3vw,2.2rem);line-height:1.25;font-weight:300;max-width:34ch;margin:48px 0 0}
+.closing em{color:var(--accent)}
+footer{padding:40px 0 60px;color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+
+/* ---------- presentation ---------- */
+.pres{position:fixed;inset:0;z-index:90;background:var(--bg);display:none;flex-direction:column}
+.pres.open{display:flex}
+.pres-slide{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(20px,4vw,56px);align-items:center;padding:clamp(20px,5vw,72px)}
+.pres-slide.solo{grid-template-columns:1fr}
+.pres-slide .k{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.pres-slide h2{font-family:var(--display);font-weight:300;font-size:clamp(2.2rem,6vw,5.4rem);line-height:.95;letter-spacing:-.03em;margin:10px 0 18px}
+.pres-slide h2 em{color:var(--accent);font-weight:600}
+.pres-slide p{font-size:clamp(1rem,1.7vw,1.3rem);max-width:48ch;margin:0 0 12px}
+.pres-slide ul{font-size:clamp(.95rem,1.5vw,1.15rem);padding-left:20px;margin:0;max-width:56ch}
+.pres-slide li{margin-bottom:6px}
+.pres-media{min-width:0;max-height:100%;display:flex;align-items:center;justify-content:center}
+.pres-media video,.pres-media img{max-height:72vh;width:100%;object-fit:contain;border-radius:12px;background:#000;border:1px solid var(--line)}
+.pres-bar{display:flex;align-items:center;gap:10px;padding:12px clamp(16px,3vw,32px);border-top:1px solid var(--line)}
+.pres-bar .prog{flex:1;height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.pres-bar .prog i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.pres-bar .cnt{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:56px;text-align:center}
+@media (max-width:800px){.pres-slide{grid-template-columns:1fr;align-content:start;overflow:auto}.pres-media video,.pres-media img{max-height:40vh}}
+.pres table{font-size:clamp(.8rem,1.3vw,1rem)}
+
+/* ===== Estética jv: papel cálido, naranja Ita, display geométrica ===== */
+.logo{font-style:normal;font-weight:800;letter-spacing:-.03em;text-transform:lowercase}
+.logo b{color:var(--accent-text)}
+.hero{background:radial-gradient(120% 90% at 100% 0%,#ffd9c2 0%,transparent 55%),radial-gradient(80% 70% at 0% 100%,#d6ebe4 0%,transparent 60%)}
+.hero h1{font-weight:800;letter-spacing:-.06em;line-height:.85;text-transform:lowercase}
+.hero h1 em{font-style:normal;color:var(--accent);-webkit-text-stroke:0}
+.hero .sub,.sec-head h2,.card h3,.bd h3,.iter header h3,.modal-head h3,h3.sub,.inspector-side h3,.closing,.pres-slide h2{font-weight:700;letter-spacing:-.02em}
+.hero .sub{font-family:var(--body);font-weight:500}
+.sec-num,.iter header .k,.modal-head .n,.thumb .num{font-style:normal;font-weight:800}
+.sec-num{color:var(--accent);-webkit-text-stroke:0}
+.thumb .num{font-family:var(--display);background:var(--accent);color:var(--ink);text-shadow:none;border-radius:999px;font-size:1.05rem;padding:6px 12px;left:12px;bottom:12px}
+.thumb{background:var(--bg3)}
+.thumb .placeholder{background:linear-gradient(135deg,#ffe2cf,#e8f1ec)}
+.card{box-shadow:0 1px 0 var(--line)}
+.card:hover{border-color:var(--accent);transform:translateY(-3px) rotate(-.3deg)}
+.chip{border-radius:999px;background:var(--bg2)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.btn.primary{color:var(--ink)}
+.tl i{background:var(--bg2)}
+.tl.final i{border-color:var(--hot);color:var(--hot)}
+.bd .lbl,.modal-side h4,.inspector-side dt,.pres-slide .k,.closing em,.hero h1 em+span{color:var(--accent-text)}
+.tag.me{border-color:var(--accent-text);color:var(--accent-text);background:#fff1e8}
+.tag.team{border-color:var(--hot);color:var(--hot);background:#e6f3ef}
+.top{background:color-mix(in srgb,var(--bg) 85%,transparent)}
+.v-stage{background:#efe6d8}
+.v-status{background:rgba(255,250,243,.95)}
+.v-hud{background:rgba(255,250,243,.85);color:var(--muted)}
+.ibtn[aria-pressed="true"],.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.modal{background:rgba(40,30,20,.55)}
+tr.me td{background:#ffeadd}
+.iter .cols div:nth-child(1) b{color:var(--accent-text)}
+.iter .cols div:nth-child(2) b{color:var(--muted)}
+.iter .cols div:nth-child(3) b{color:var(--hot)}
+.stage.fbx{display:grid;place-items:center;aspect-ratio:16/9;background:linear-gradient(135deg,#ffe2cf,#e8f1ec);color:var(--ink);padding:16px;text-align:center}
+.stage.fbx figcaption{background:transparent;justify-content:center;flex-wrap:wrap}
+.stages>*,.stage.fbx>div{min-width:0;max-width:100%}
+.stage.fbx>div>div{overflow-wrap:anywhere}
+.stage.fbx .btn{white-space:normal;text-align:center}
+@media (max-width:640px){.stage.fbx{aspect-ratio:auto;min-height:180px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#curaduria">Saltar al contenido</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">jv <b>portfolio</b></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#curaduria">01 Curaduría</a>
+      <a href="#breakdown">02 Breakdown</a>
+      <a href="#proceso">03 Proceso</a>
+      <a href="#inspector">04 Inspector 3D</a>
+      <a href="#creditos">05 Créditos</a>
+    </nav>
+    <button class="btn present" id="btnPresent" type="button" title="Modo presentación (P)">Presentar <kbd>P</kbd></button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="mono muted">Animación 3D · Universidad EAFIT</span>
+      <h1>jv <em>portfolio</em></h1>
+      <p class="sub">Juliana Vieira — Portafolio de Animación 3D</p>
+      <div class="hero-grid">
+        <div>
+          <p class="lead">Soy Juliana Vieira. Aquí reúno cómo construí y animé a <strong>Ita</strong>: desde mi proxy en primitivas con rig, pasando por mis ciclos idle, de carrera y de salto, hasta la malla final con UVs, mapas horneados, LODs y mi versión <strong>Ita Naranja</strong>. Mi foco es mi progresión individual de la <strong>Task 03 a la Task 07</strong>; la entrega final en equipo aparece al cierre, con la autoría de cada integrante tomada de nuestra ficha técnica.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#curaduria">Ver mi progresión</a>
+            <a class="btn" href="#inspector">Abrir Inspector FBX</a>
+            <button class="btn" type="button" data-present>Modo presentación <kbd>P</kbd></button>
+          </div>
+          <div class="tools" id="heroTools"></div>
+        </div>
+        <div class="stats" id="heroStats" aria-label="Resumen de evidencias"></div>
+      </div>
+      <div class="notice" id="fileNotice" role="status">
+        <strong>Estás viendo el portafolio como archivo local (file://).</strong> Los videos y las imágenes funcionan, pero el navegador bloquea la lectura automática de los <code>.fbx</code>. Para el visor 3D usa el enlace publicado (Netlify / GitHub Pages) o arrastra el <code>.fbx</code> al visor con <em>+ Subir FBX</em>.
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 01 CURADURÍA ================= -->
+  <section class="block" id="curaduria">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-num">01</div>
+        <div><span class="rubric">Criterio 1 · Curaduría — progresión y evidencia completa</span><h2>Mi progresión, task por task</h2></div>
+        <p>Ordené mis entregas cronológicamente. Mi evidencia principal son los <strong>FBX interactivos</strong>: cada tarjeta abre un visor donde se puede reproducir cada ciclo, verlo en wireframe o rayos X y revisar el esqueleto. La Task 07 y la entrega final suman capturas, mapas de textura, documentos y los videos del equipo.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar entregas" id="filters"></div>
+      <div class="timeline" id="timeline" aria-label="Línea de tiempo del semestre"></div>
+      <div class="grid" id="cards"></div>
+    </div>
+  </section>
+
+  <!-- ================= 02 BREAKDOWN ================= -->
+  <section class="block" id="breakdown">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-num">02</div>
+        <div><span class="rubric">Criterio 2 · Breakdown individual — aportes, responsabilidades y decisiones</span><h2>Qué hice yo, y por qué</h2></div>
+        <p>Separo lo que construí y animé sola, lo que hice en pareja con Jimena Duque en la Task 07 y lo que hicimos entre las seis personas del equipo en la entrega final. También señalo lo que viene de recursos externos.</p>
+      </div>
+      <div class="bd" id="bdGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= 03 PROCESO ================= -->
+  <section class="block" id="proceso">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-num">03</div>
+        <div><span class="rubric">Criterio 3 · Proceso iterativo — problemas, feedback y mejoras</span><h2>Proceso de mejoría</h2></div>
+        <p>Cuatro iteraciones documentadas como <strong>Problema detectado → Feedback / Observación → Decisión técnica</strong>. Los FBX del antes y del después se abren directamente en el Inspector 3D.</p>
+      </div>
+      <div id="iterations"></div>
+    </div>
+  </section>
+
+  <!-- ================= 04 INSPECTOR ================= -->
+  <section class="block" id="inspector">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-num">04</div>
+        <div><span class="rubric">Criterio 4 · Presentación profesional — narrativa, diseño y reproducción</span><h2>Inspector FBX</h2></div>
+        <p>Aquí reviso cualquiera de mis FBX en tiempo real: reproducción, línea de tiempo, velocidad, loop, selector de clip, modos de sombreado, esqueleto y cámara. Si un archivo no carga, se puede arrastrar directamente al visor.</p>
+      </div>
+      <div class="inspector-layout">
+        <div id="inspectorSlot">
+          <div class="viewer" id="viewer">
+            <div class="v-top">
+              <select id="vModel" aria-label="Archivo FBX"></select>
+              <label class="btn upload" title="Carga uno o varios .fbx (y sus texturas) desde tu equipo">+ Subir FBX<input id="vUpload" type="file" accept=".fbx,.png,.jpg,.jpeg" multiple></label>
+            </div>
+            <div class="v-stage">
+              <div class="v-canvas" id="vCanvas"></div>
+              <div class="v-status" id="vStatus"><span id="vStatusText">Preparando el visor 3D…</span><div class="bar"><i id="vBar"></i></div></div>
+              <div class="v-drop">Suelta aquí tu .fbx (y texturas)</div>
+              <div class="v-hud" id="vHud">arrastra para orbitar · rueda para zoom · clic derecho para desplazar</div>
+            </div>
+            <div class="v-controls">
+              <div class="v-row tl-row">
+                <button class="ibtn" id="vPlay" type="button" aria-label="Pausar">❚❚</button>
+                <input id="vScrub" type="range" min="0" max="1000" value="0" step="1" aria-label="Línea de tiempo">
+                <span class="v-time" id="vTime">0.00 / 0.00 s</span>
+              </div>
+              <div class="v-row">
+                <select id="vClip" aria-label="Clip de animación"></select>
+                <div class="seg" role="group" aria-label="Velocidad">
+                  <button type="button" data-speed="0.25" aria-pressed="false">0.25x</button>
+                  <button type="button" data-speed="0.5" aria-pressed="false">0.5x</button>
+                  <button type="button" data-speed="1" aria-pressed="true">1x</button>
+                </div>
+                <button class="ibtn" id="vLoop" type="button" aria-pressed="true" title="Repetir clip">⟲ Loop</button>
+              </div>
+              <div class="v-row">
+                <div class="seg" role="group" aria-label="Sombreado">
+                  <button type="button" data-mode="textured" aria-pressed="true">Texturizado</button>
+                  <button type="button" data-mode="solid" aria-pressed="false">Sólido</button>
+                  <button type="button" data-mode="wire" aria-pressed="false">Wireframe</button>
+                  <button type="button" data-mode="xray" aria-pressed="false">Rayos X</button>
+                </div>
+                <button class="ibtn" id="vSkel" type="button" aria-pressed="false" title="Mostrar esqueleto y joints">Esqueleto</button>
+                <button class="ibtn" id="vGrid" type="button" aria-pressed="true" title="Mostrar grilla">Grilla</button>
+                <button class="ibtn" id="vReset" type="button" title="Reiniciar cámara">Reset cámara</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="inspector-side">
+          <h3>Cómo lo uso en clase</h3>
+          <dl>
+            <dt>P</dt><dd>Abre / cierra el modo presentación</dd>
+            <dt>← →</dt><dd>Diapositiva anterior / siguiente</dd>
+            <dt>Esc</dt><dd>Cierra modal, imagen o presentación</dd>
+            <dt>Espacio</dt><dd>Play / pausa del visor (con el cursor sobre él)</dd>
+          </dl>
+          <h3 style="margin-top:18px">Notas técnicas</h3>
+          <p class="muted" style="margin:0 0 8px">El visor usa Three.js r160 con <code>FBXLoader</code>, <code>OrbitControls</code> y <code>AnimationMixer</code>. Normaliza la escala de cada FBX (Maya trabaja en centímetros) y recorta cada clip a su rango real de keys.</p>
+          <p class="muted" style="margin:0 0 8px">Los FBX de Ita Naranja traen además una toma base sin movimiento; el visor la oculta y muestra solo el clip animado.</p>
+          <p class="muted" style="margin:0">A los FBX finales les quité las texturas embebidas (unos 30 MB por archivo) y cargo mis mapas Albedo y Normal como archivos externos optimizados: modelo, rig y animación quedan intactos.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 CRÉDITOS ================= -->
+  <section class="block" id="creditos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-num">05</div>
+        <div><span class="rubric">Criterio 5 · Créditos y cierre — fuentes, recursos, equipo y archivos</span><h2>Créditos y cierre</h2></div>
+        <p>La tabla del equipo está tomada literalmente de nuestra ficha <em>Créditos y Trazabilidad (Milestone 05)</em>, y el inventario lista cada archivo de este portafolio con su origen.</p>
+      </div>
+
+      <div class="cred-grid">
+        <div>
+          <h3 class="sub" style="margin-top:0">Equipo Leyend-itas · Entrega Final</h3>
+          <div class="tbl-wrap"><table id="teamTbl"><thead><tr><th>Integrante</th><th>Rol / contribución (ficha técnica)</th></tr></thead><tbody></tbody></table></div>
+          <p class="muted" style="font-size:.88rem">Según la ficha, el escenario (territorio de los Itas y dimensión Leyend-itas) y la animación de cada personaje se hicieron entre todos los integrantes. Mi parte específica: <strong>modelado de los Itas junto a Jimena Duque</strong> (yo, la versión <strong>Ita Naranja</strong>), más escenario y animación en equipo.</p>
+        </div>
+        <div>
+          <h3 class="sub" style="margin-top:0">Autoría por entrega</h3>
+          <div class="tbl-wrap"><table><thead><tr><th>Entrega</th><th>Autoría</th><th>Qué es mío</th></tr></thead><tbody id="authTbl"></tbody></table></div>
+        </div>
+      </div>
+
+      <h3 class="sub">Software y herramientas</h3>
+      <div class="tbl-wrap"><table><thead><tr><th>Herramienta</th><th>Para qué la usé</th></tr></thead><tbody>
+        <tr><td>Autodesk Maya</td><td>Proxy en primitivas, rig, mis ciclos idle, run y jump, UVs, malla HIGH, horneado de mapas, LODs con polyReduce y transferencia de pesos.</td></tr>
+        <tr><td>HumanIK (Maya)</td><td>Control Rig de mis proxies (Demo_proxy, Idles, Ita_Proxy1) para animar los ciclos.</td></tr>
+        <tr><td>Adobe Mixamo</td><td>Clips Walk, Combat, Jump y Mosquitos aplicados a Ita Naranja para la entrega final.</td></tr>
+        <tr><td>Unity 6 · URP</td><td>Destino de los LOD que generé en la Task 07 (validados en Unity por Jimena Duque) y cinemática del equipo (Timeline, Cinemachine).</td></tr>
+        <tr><td>Three.js r160 (FBXLoader, OrbitControls, AnimationMixer)</td><td>Visor FBX interactivo de este portafolio.</td></tr>
+        <tr><td>Claude (IA)</td><td>Asistencia en el diseño y la programación de esta página web del portafolio.</td></tr>
+      </tbody></table></div>
+
+      <h3 class="sub">Recursos externos y de terceros</h3>
+      <div class="tbl-wrap"><table id="tpTbl"><thead><tr><th>Recurso</th><th>Autor</th><th>Fuente / licencia</th><th>Dónde se usa</th></tr></thead><tbody></tbody></table></div>
+      <p class="muted" style="font-size:.88rem">Original vs. referenciado: mi proxy de la Task 03, mis tres idles y los ciclos Run y Jump son animación mía. La malla final de Ita la hicimos en pareja con Jimena Duque, y el mapa de color Naranja es mío. Los clips de Ita Naranja de la entrega final vienen de Mixamo, y el escenario es del equipo.</p>
+
+      <h3 class="sub">Inventario de archivos</h3>
+      <div class="inv-tools"><input id="invSearch" type="search" placeholder="Filtrar por nombre, task o tipo…" aria-label="Filtrar inventario"><span class="mono muted" id="invCount"></span></div>
+      <div class="tbl-wrap" style="max-height:520px;overflow:auto"><table id="invTbl"><thead><tr><th>Archivo</th><th>Tipo</th><th>Entrega</th><th>Tamaño</th><th>Origen</th></tr></thead><tbody></tbody></table></div>
+
+      <p class="closing">Empecé con un proxy de esferas y cilindros, y cierro con <em>Ita Naranja</em>: con UVs limpias, mapas horneados y tres niveles de detalle listos para el motor. Me llevo la costumbre de pensar cada decisión en función de cómo se va a ver en pantalla.</p>
+      <p class="muted" style="margin-top:14px">— Juliana Vieira</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><strong>jv portfolio</strong> · Juliana Vieira — Portafolio de Animación 3D</span>
+    <span>Universidad EAFIT · Animación 3D · 2026</span>
+  </div>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="n" id="mNum"></span>
+      <h3 id="mTitle"></h3>
+      <span class="tag" id="mAut"></span>
+      <button class="btn" id="mClose" type="button" aria-label="Cerrar">Cerrar ✕</button>
+    </div>
+    <div class="tabs" role="tablist" id="mTabs">
+      <button role="tab" data-tab="3d" type="button">Visor 3D Interactivo</button>
+      <button role="tab" data-tab="video" type="button">Video / Playblast</button>
+      <button role="tab" data-tab="img" type="button">Capturas & Evidencia</button>
+      <button role="tab" data-tab="docs" type="button">Documentos</button>
+    </div>
+    <div class="modal-main">
+      <div class="modal-pane" id="mPane">
+        <div id="m3dSlot" hidden></div>
+        <div id="mContent"></div>
+      </div>
+      <aside class="modal-side" id="mSide"></aside>
+    </div>
+  </div>
+</div>
+
+<!-- lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <img id="lbImg" alt="">
+  <div class="lb-bar">
+    <button class="btn" id="lbPrev" type="button">← Anterior</button>
+    <span id="lbCap"></span>
+    <button class="btn" id="lbNext" type="button">Siguiente →</button>
+    <button class="btn" id="lbClose" type="button">Cerrar ✕</button>
+  </div>
+</div>
+
+<!-- presentation -->
+<div class="pres" id="pres" role="dialog" aria-modal="true" aria-label="Modo presentación">
+  <div class="pres-slide" id="presSlide"></div>
+  <div class="pres-bar">
+    <button class="btn" id="presPrev" type="button">←</button>
+    <div class="prog"><i id="presProg"></i></div>
+    <span class="cnt" id="presCnt"></span>
+    <button class="btn" id="presNext" type="button">→</button>
+    <button class="btn" id="presExit" type="button">Salir <kbd>P</kbd></button>
+  </div>
+</div>
+
+<noscript><p style="padding:20px">Este portafolio necesita JavaScript para mostrar las evidencias.</p></noscript>
+
+<script src="assets-manifest.js"></script>
+<script>
+/* =====================================================================
+   UI (script clásico: funciona aunque falle el CDN de Three.js)
+   ===================================================================== */
+(function () {
+  'use strict';
+  var M = window.JDG_MANIFEST;
+  if (!M) { document.body.insertAdjacentHTML('afterbegin', '<p style="padding:16px;background:#ff6b3d;color:#000">No encontré assets-manifest.js junto a index.html.</p>'); return; }
+  var SIZES = window.JDG_SIZES || {};
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var byId = {}; M.tasks.forEach(function (t) { byId[t.id] = t; });
+  var IS_FILE = location.protocol === 'file:';
+  if (IS_FILE) $('#fileNotice').classList.add('show');
+
+  /* ---------- notas por task (breakdown dentro del modal) ---------- */
+  var NOTES = {
+    task03: { mine: ['Modelé mi proxy de Ita con 35 primitivas (2.572 tris).', 'Construí un esqueleto de 32 joints y su Control Rig HumanIK (namespace Demo_proxy).', 'Animé una prueba de movimiento de 16,5 s para revisar el rango de cada articulación.'], why: 'Mantener el proxy muy liviano me dejó probar pivotes y rotaciones al instante; lo importante en esta etapa era el rig, no el detalle de la malla.' },
+    task05: { mine: ['Animé tres idles distintos (Idle 01, 02 y 03), cada uno de unos 2 s (50 frames).', 'Los trabajé sobre el rig compartido del proxy de Ita (namespace Idles) con su Control Rig HumanIK.', 'Exporté cada ciclo como FBX con la animación en los joints.'], why: 'Le di a cada idle una intensidad distinta, de casi inmóvil a muy expresivo, para que el personaje tuviera opciones de reposo según la escena sin repetir siempre el mismo gesto.' },
+    task06: { mine: ['Animé el ciclo de carrera (Run, unos 2,1 s).', 'Animé el salto (Jump, unos 2,1 s) con anticipación, despegue, vuelo y aterrizaje.', 'Exporté ambos ciclos desde el rig Ita_Proxy1 con HumanIK.'], why: 'Mantuve ciclos cortos y del mismo largo que los idles para que las transiciones entre reposo y locomoción fueran fáciles de mezclar en el motor.' },
+    task07: { mine: ['Desplegué y empaqueté las UVs de la malla final.', 'Generé la malla HIGH y horneé los mapas Normal y Ambient Occlusion.', 'Reduje la malla a LOD1 y LOD2 con polyReduce, conservando bordes UV y silueta.', 'Transferí los pesos de skin del LOD0 a los otros niveles.', 'Pinté mi textura Albedo en tonalidad Naranja (Ita Naranja).'], team: ['Jimena Duque: diagnóstico del modelo base, retopología en quads, rig HumanIK, textura Azul y validación de LODs en Unity.'], why: 'Escondí las costuras en zonas poco visibles (bajo el cuello, centro de la espalda, cara interna de brazos y piernas, plantas de los pies) y dejé intacto el espacio UV de un accesorio retirado para no re-escalar un mapa ya horneado.' },
+    final: { mine: ['Modelado de los Itas junto a Jimena Duque; la versión Ita Naranja es la mía.', 'Escenario y animación de los personajes en equipo.', 'Apliqué a Ita Naranja los clips Walk, Combat, Jump y Mosquitos de Mixamo para el tráiler.'], team: ['Jimena Duque: Itas (Ita Azul).', 'Dulce Rojas y Susana Sepúlveda: Llorona.', 'Génesis Rivas y Felipe López: Patasola.', 'Escenario y animación: todo el equipo.'], why: 'Como Ita Naranja comparte geometría y UVs con Ita Azul, pude llevarla a la escena final con solo cambiar el mapa de color, y dedicar el tiempo a darle acciones propias en el tráiler.' }
+  };
+
+  /* ---------- hero ---------- */
+  var count = { fbx: 0, video: 0, img: 0 };
+  M.tasks.forEach(function (t) { count.fbx += t.fbx.length; count.video += t.videos.length; count.img += t.images.length; });
+  $('#heroStats').innerHTML = [
+    [M.tasks.filter(function (t) { return t.cats.indexOf('individual') > -1; }).length, 'Entregas individuales'], [count.fbx, 'FBX interactivos'], [count.video, 'Videos del equipo'], [count.img, 'Capturas y mapas']
+  ].map(function (s) { return '<div><b>' + s[0] + '</b><span>' + s[1] + '</span></div>'; }).join('');
+  $('#heroTools').innerHTML = M.tools.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('');
+
+  /* ---------- filtros + timeline + cards ---------- */
+  var FILTERS = [['todos', 'Todos']].concat(Object.keys(M.categories).map(function (k) { return [k, M.categories[k]]; }));
+  $('#filters').innerHTML = FILTERS.map(function (f, i) {
+    var n = f[0] === 'todos' ? M.tasks.length : M.tasks.filter(function (t) { return t.cats.indexOf(f[0]) > -1; }).length;
+    return '<button class="chip" type="button" data-f="' + f[0] + '" aria-pressed="' + (i === 0) + '">' + esc(f[1]) + '<span class="n">' + n + '</span></button>';
+  }).join('');
+  $('#timeline').style.gridTemplateColumns = 'repeat(' + M.tasks.length + ',1fr)';
+  $('#timeline').innerHTML = M.tasks.map(function (t) {
+    return '<button class="tl' + (t.id === 'final' ? ' final' : '') + '" type="button" data-open="' + t.id + '" data-cats="' + t.cats.join(' ') + '"><i>' + t.num + '</i><span>' + esc(t.kicker) + '</span></button>';
+  }).join('');
+
+  var GLYPH = { task03: '◯ ▭ ◯', task05: '≈ ≈ ≈', task06: '↗ ⤴', task07: '▦', final: '★' };
+  function thumbHTML(t) {
+    var img = t.images[0], vid = t.videos[0];
+    var inner = vid ? '<video muted playsinline loop preload="metadata" src="' + esc(vid.file) + '#t=1"></video>'
+      : img ? '<img loading="lazy" src="' + esc(img.file) + '" alt="' + esc(img.label) + '">'
+      : '<div class="placeholder"><span style="font-family:var(--display);font-weight:800;font-size:2.6rem;letter-spacing:.1em;color:var(--accent-text)">' + (GLYPH[t.id] || '') + '</span></div>';
+    if (t.id === 'task07' && img) inner = '<img loading="lazy" src="' + esc(img.file) + '" alt="' + esc(img.label) + '">';
+    return '<div class="thumb">' + inner + '<span class="num">' + t.num + '</span></div>';
+  }
+  $('#cards').innerHTML = M.tasks.map(function (t) {
+    var tags = [];
+    if (t.fbx.length) tags.push(t.fbx.length + ' FBX');
+    if (t.videos.length) tags.push(t.videos.length + ' video' + (t.videos.length > 1 ? 's' : ''));
+    if (t.images.length) tags.push(t.images.length + ' capturas');
+    if (t.docs.length) tags.push(t.docs.length + ' doc');
+    var autCls = /Equipo/.test(t.autoria) ? 'team' : /pareja/.test(t.autoria) ? '' : 'me';
+    return '<button class="card" type="button" data-open="' + t.id + '" data-cats="' + t.cats.join(' ') + '">' + thumbHTML(t) +
+      '<div class="body"><span class="mono muted">' + (t.id === 'final' ? 'Entrega final' : 'Task ' + t.num.replace('·', '–')) + ' · ' + esc(t.kicker) + '</span><h3>' + esc(t.title) + '</h3><p>' + esc(t.summary) + '</p>' +
+      '<div class="meta"><span class="tag ' + autCls + '">' + esc(t.autoria) + '</span>' + tags.map(function (x) { return '<span class="tag">' + x + '</span>'; }).join('') + '</div></div></button>';
+  }).join('');
+  $$('#cards .card').forEach(function (c) {
+    var v = $('video', c); if (!v) return;
+    c.addEventListener('mouseenter', function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+    c.addEventListener('mouseleave', function () { v.pause(); });
+  });
+  $('#filters').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b) return;
+    $$('#filters .chip').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+    var f = b.dataset.f;
+    $$('#cards .card').forEach(function (c) { c.hidden = !(f === 'todos' || c.dataset.cats.split(' ').indexOf(f) > -1); });
+    $$('#timeline .tl').forEach(function (c) { c.classList.toggle('off', !(f === 'todos' || c.dataset.cats.split(' ').indexOf(f) > -1)); });
+  });
+  document.addEventListener('click', function (e) {
+    var o = e.target.closest('[data-open]'); if (o) openTask(o.dataset.open);
+  });
+
+  /* ---------- breakdown ---------- */
+  var BD = [
+    { t: 'Mi proxy en primitivas', task: 'Task 03', what: 'Modelé un proxy de Ita con 35 primitivas (2.572 tris), le armé un esqueleto de 32 joints con Control Rig HumanIK y animé una prueba de movimiento de 16,5 s.', why: 'Un proxy tan liviano responde al instante en el viewport, así que pude concentrarme en ubicar bien los pivotes y revisar el rango de cada articulación antes de animar ciclos.', bar: [100, 0, 0] },
+    { t: 'Tres idles con intensidades distintas', task: 'Tasks 04–05', what: 'Animé Idle 01, 02 y 03 (unos 2 s cada uno) sobre el rig del proxy de Ita y los exporté como FBX con la animación en los joints.', why: 'Busqué un rango: un idle casi quieto, uno intermedio y uno muy expresivo, para que el personaje tenga opciones de reposo según la escena y no repita siempre el mismo gesto.', bar: [100, 0, 0] },
+    { t: 'Run & Jump', task: 'Task 06', what: 'Animé el ciclo de carrera y el salto completo (anticipación, despegue, vuelo y aterrizaje) sobre el rig Ita_Proxy1.', why: 'Los mantuve cortos y del mismo largo aproximado que mis idles para que las transiciones reposo ↔ locomoción fueran fáciles de mezclar en el motor.', bar: [100, 0, 0] },
+    { t: 'UVs, horneado y LODs', task: 'Task 07 · 50/50', what: 'Desplegué y empaqueté las UVs, generé la malla HIGH, horneé los mapas Normal y AO, reduje LOD1 y LOD2 con polyReduce y transferí los pesos de skin. Jimena Duque hizo el diagnóstico, la retopología en quads, el rig HumanIK y la validación en Unity.', why: 'Escondí las costuras en zonas poco visibles y conservé el espacio UV de un accesorio retirado para no re-escalar un mapa ya horneado. Como la HIGH sale de una subdivisión limpia del LOD0, la proyección de normales quedó sin artefactos. LOD1 reduce un 49 % de triángulos y LOD2 un 78 %.', bar: [50, 50, 0] },
+    { t: 'Ita Naranja', task: 'Task 07 → Final', what: 'Pinté mi versión cromática de Ita en naranja (T_Ita_BaseColor), manteniendo la misma geometría y distribución UV que Ita Azul.', why: 'Diferenciar a los dos Itas solo con el mapa de color nos permitió compartir topología, rig y UVs. Así el equipo tuvo dos personajes con el costo de producción de uno.', bar: [100, 0, 0] },
+    { t: 'Mi papel en la Entrega Final', task: 'Equipo de 6', what: 'Según la ficha técnica: modelado de los Itas (con Jimena Duque) y escenario + animación de los personajes en equipo. Ita Naranja aparece en el tráiler de Maya y en la cinemática de Unity.', why: 'Para darle acciones propias a Ita Naranja en el tráiler usé clips de Mixamo (Walk, Combat, Jump, Mosquitos) sobre el modelo final. Los acredito como recursos externos.', bar: [17, 17, 66] }
+  ];
+  $('#bdGrid').innerHTML = BD.map(function (b) {
+    return '<article><span class="mono muted">' + esc(b.task) + '</span><h3>' + esc(b.t) + '</h3>' +
+      '<p class="what"><span class="lbl">Qué hice</span>' + esc(b.what) + '</p>' +
+      '<p class="why"><span class="lbl">Por qué lo decidí</span>' + esc(b.why) + '</p>' +
+      '<div class="split-bar" role="img" aria-label="Autoría: ' + b.bar[0] + '% mía"><i style="width:' + b.bar[0] + '%;background:var(--accent)"></i><i style="width:' + b.bar[1] + '%;background:#7aa7d9"></i><i style="width:' + b.bar[2] + '%;background:var(--hot)"></i></div>' +
+      '<div class="legend"><span><b style="background:var(--accent)"></b>Yo ' + b.bar[0] + '%</span>' + (b.bar[1] ? '<span><b style="background:#7aa7d9"></b>Jimena Duque ' + b.bar[1] + '%</span>' : '') + (b.bar[2] ? '<span><b style="background:var(--hot)"></b>Resto del equipo</span>' : '') + '</div></article>';
+  }).join('');
+
+  /* ---------- proceso iterativo ---------- */
+  var ITER = [
+    { n: 1, t: 'Task 03 → Tasks 04–05 · Del rig de prueba a tres idles con intención',
+      p: 'Mi proxy de la Task 03 solo demostraba que el rig funcionaba: una prueba de rango de movimiento sin actitud ni ritmo.',
+      f: 'Revisando la prueba noté que un rig que se mueve no es todavía un personaje: faltaba peso, respiración y una pose que dijera algo de Ita.',
+      d: 'Pasé al rig completo del proxy de Ita (54 joints) y animé tres idles cortos con intensidades distintas, exportados con la animación en los joints.',
+      s: [{ type: 'fbx', file: 'assets/task03/CHR_Ita_Proxy_Task03.fbx', label: 'Antes · prueba de rig (Task 03)' }, { type: 'fbx', file: 'assets/task05/Ita_Idle02.fbx', label: 'Después · Idle 02' }] },
+    { n: 2, t: 'Idles → Task 06 · De reposo a locomoción: Run y Jump',
+      p: 'Con solo idles, Ita no podía desplazarse ni reaccionar; el personaje necesitaba ciclos de locomoción.',
+      f: 'En la carrera y el salto el peso se lee en los contactos con el piso: sin anticipación ni impacto claro, el movimiento flota.',
+      d: 'Animé Run y Jump marcando la anticipación, el despegue y el aterrizaje, con duraciones parecidas a mis idles para mezclarlos fácilmente.',
+      s: [{ type: 'fbx', file: 'assets/task05/Ita_Idle01.fbx', label: 'Antes · Idle 01' }, { type: 'fbx', file: 'assets/task06/Ita_Run.fbx', label: 'Después · Run' }, { type: 'fbx', file: 'assets/task06/Ita_Jump.fbx', label: 'Después · Jump' }] },
+    { n: 3, t: 'Proxy → Task 07 · Malla final con UVs, mapas horneados y LODs',
+      p: 'El modelo base estaba totalmente triangulado (9.704 tris) y sin UVs aptas para hornear; además, un personaje en primeros planos necesitaba detalle sin costo a distancia.',
+      f: 'Para que Ita se viera bien de cerca y fuera liviana de lejos hacían falta un mapa normal limpio y niveles de detalle que deformaran igual que el LOD0.',
+      d: 'Desplegué las UVs con costuras escondidas, generé la HIGH, horneé Normal y AO, reduje LOD1 (−49 %) y LOD2 (−78 %) y transferí los pesos desde el LOD0.',
+      s: [{ type: 'fbx', file: 'assets/task06/Ita_Run.fbx', label: 'Antes · proxy en primitivas' }, { type: 'img', file: 'assets/task07/captures/T_Ita_UVLayout.png', label: 'Mi UV Layout' }, { type: 'img', file: 'assets/task07/captures/Comparativa_LOD_Unity.jpg', label: 'Después · LOD0/1/2 en Unity' }] },
+    { n: 4, t: 'Task 07 → Entrega Final · Ita Naranja en la escena del equipo',
+      p: 'Teníamos dos Itas con la misma malla, y en el tráiler debían distinguirse a simple vista y tener acciones propias.',
+      f: 'Diferenciarlos con geometría habría duplicado el trabajo de rig y UVs; el color era suficiente para leer dos personajes.',
+      d: 'Pinté la variante Naranja sobre las mismas UVs y la animé con clips de Mixamo (Walk, Combat, Jump, Mosquitos) para el tráiler del equipo.',
+      s: [{ type: 'img', file: 'assets/task07/captures/Ita_Naranja_preview.jpg', label: 'Antes · Ita Naranja en Maya' }, { type: 'video', file: 'assets/entrega_final/Leyenditas_Trailer_Maya.mp4', label: 'Después · tráiler del equipo' }] }
+  ];
+  function stageHTML(s, i) {
+    var tag = i === 0 ? '<span class="tag team">Antes</span>' : '<span class="tag me">Después</span>';
+    if (s.type === 'fbx') {
+      return '<figure class="stage fbx" data-i="' + i + '"><div><div style="font-family:var(--display);font-weight:800;font-size:1.4rem;margin-bottom:10px">' + esc(s.file.split('/').pop()) + '</div>' +
+        '<button class="btn primary" type="button" data-fbx="' + esc(s.file) + '">Ver en el Inspector 3D →</button></div><figcaption>' + tag + esc(s.label) + '</figcaption></figure>';
+    }
+    var media = s.type === 'video' ? '<video controls muted playsinline preload="metadata" src="' + esc(s.file) + '#t=0.5"></video>'
+      : '<img loading="lazy" src="' + esc(s.file) + '" alt="' + esc(s.label) + '">';
+    return '<figure class="stage" data-i="' + i + '">' + media + '<figcaption>' + tag + esc(s.label) + '</figcaption></figure>';
+  }
+  $('#iterations').innerHTML = ITER.map(function (it) {
+    var btns = it.s.map(function (s, i) { return '<button type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + (i === 0 ? 'Antes' : it.s.length > 2 && i === 1 ? 'Intermedio' : 'Después') + '</button>'; }).join('');
+    return '<article class="iter" data-iter="' + it.n + '"><header><span class="k">' + it.n + '</span><h3>Iteración ' + it.n + ' · ' + esc(it.t) + '</h3></header>' +
+      '<div class="cols"><div><b>Problema detectado</b>' + esc(it.p) + '</div><div><b>Feedback / Observación</b>' + esc(it.f) + '</div><div><b>Decisión técnica y mejora aplicada</b>' + esc(it.d) + '</div></div>' +
+      '<div class="cmp"><div class="cmp-bar"><div class="seg" role="group" aria-label="Vista de comparación"><button type="button" data-view="side" aria-pressed="true">Lado a lado</button><button type="button" data-view="toggle" aria-pressed="false">Alternar</button></div>' +
+      '<div class="seg pick" role="group" aria-label="Etapa" hidden>' + btns + '</div></div>' +
+      '<div class="stages side" style="--n:' + it.s.length + '">' + it.s.map(stageHTML).join('') + '</div></div></article>';
+  }).join('');
+  $('#iterations').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.fbx) {
+      var v3 = window.JDG3D; if (!v3) return;
+      var idx = v3.lib.findIndex(function (x) { return x.file === b.dataset.fbx; });
+      if (idx > -1) { v3.setContext(null); v3.loadIndex(idx); }
+      document.getElementById('inspector').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    var art = b.closest('.iter'); var stages = $('.stages', art); var pick = $('.pick', art);
+    if (b.dataset.view) {
+      $$('[data-view]', art).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      var side = b.dataset.view === 'side';
+      stages.classList.toggle('side', side); pick.hidden = side;
+      var cur = +($('[aria-pressed="true"]', pick).dataset.i);
+      $$('.stage', stages).forEach(function (s) { s.hidden = !side && +s.dataset.i !== cur; });
+    } else if (b.closest('.pick')) {
+      $$('button', pick).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      $$('.stage', stages).forEach(function (s) {
+        var on = s.dataset.i === b.dataset.i; s.hidden = !on;
+        var v = $('video', s); if (v && !on) v.pause();
+      });
+    }
+  });
+
+  /* ---------- créditos ---------- */
+  $('#teamTbl tbody').innerHTML = M.team.map(function (m) {
+    return '<tr class="' + (m.me ? 'me' : '') + '"><td><strong>' + esc(m.name) + '</strong>' + (m.me ? ' <span class="tag me">yo</span>' : '') + '</td><td>' + esc(m.role) + '</td></tr>';
+  }).join('');
+  $('#tpTbl tbody').innerHTML = M.thirdParty.map(function (r) {
+    return '<tr><td>' + esc(r.item) + '</td><td>' + esc(r.author) + '</td><td>' + esc(r.source) + '</td><td>' + esc(r.where) + '</td></tr>';
+  }).join('');
+  var AUTH = {
+    task03: 'Proxy, esqueleto, Control Rig HumanIK y prueba de movimiento', task05: 'Idle 01, 02 y 03',
+    task06: 'Ciclos Run y Jump', task07: 'UVs, malla HIGH, horneado Normal/AO, LOD1/LOD2, transferencia de pesos, textura Naranja',
+    final: 'Modelado de los Itas (con Jimena), Ita Naranja, escenario y animación en equipo'
+  };
+  $('#authTbl').innerHTML = M.tasks.map(function (t) {
+    return '<tr' + (t.autoria === 'Individual' ? ' class="me"' : '') + '><td>' + (t.id === 'final' ? 'Final' : 'Task ' + t.num.replace('·', '–')) + '</td><td>' + esc(t.autoria) + '</td><td>' + esc(AUTH[t.id]) + '</td></tr>';
+  }).join('');
+
+  function origin(t, f) {
+    if (f.origen) return f.origen;
+    if (t.id === 'final') {
+      if (/ita_naranja\/.*\.fbx$/.test(f.file)) return 'Modelo: Juliana Vieira y Jimena Duque · versión Naranja: mía · clip: Mixamo';
+      if (/escenario|preview_/.test(f.file)) return 'Equipo (todos los integrantes)';
+      return 'Equipo (6 integrantes)';
+    }
+    if (t.id === 'task07') {
+      if (/LOD|Comparativa/.test(f.file)) return 'Jimena Duque (validación en Unity) · LOD1/LOD2: míos';
+      if (/Ita_Naranja\.fbx/.test(f.file)) return 'En pareja · UVs, pesos y textura Naranja: míos; retopología y rig: Jimena Duque';
+      if (/pdf$/.test(f.file)) return 'En pareja (ficha conjunta)';
+      return 'Mío';
+    }
+    return 'Original mío';
+  }
+  function fmtSize(b) { if (!b) return '—'; return b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB'; }
+  var inv = [];
+  M.tasks.forEach(function (t) {
+    var push = function (f, kind) { if (f.external) return; inv.push({ f: f.file, kind: kind, task: t.id === 'final' ? 'Entrega final' : 'Task ' + t.num.replace('·', '–'), size: SIZES[f.file], o: origin(t, f) }); };
+    t.fbx.forEach(function (f) { if (!inv.some(function (x) { return x.f === f.file; })) push(f, 'FBX'); });
+    t.videos.forEach(function (f) { push(f, 'Video ' + f.source); });
+    t.images.forEach(function (f) { if (!inv.some(function (x) { return x.f === f.file; })) push(f, /T_Ita_/.test(f.file) ? 'Textura' : 'Captura'); });
+    t.docs.forEach(function (f) { push(f, 'Documento'); });
+  });
+  [['assets/task07/T_Ita_BaseColor.png', 'Task 07', 'Mío (textura Naranja)'], ['assets/task07/T_Ita_Normal.png', 'Task 07', 'Mío (horneado + detalle)'],
+   ['assets/entrega_final/ita_naranja/T_Ita_BaseColor.png', 'Entrega final', 'Mío (textura Naranja)'], ['assets/entrega_final/ita_naranja/T_Ita_Normal.png', 'Entrega final', 'Mío (horneado + detalle)']].forEach(function (p) {
+    inv.push({ f: p[0], kind: 'Textura', task: p[1], size: SIZES[p[0]], o: p[2] });
+  });
+  function renderInv(q) {
+    q = (q || '').toLowerCase();
+    var rows = inv.filter(function (r) { return !q || (r.f + ' ' + r.kind + ' ' + r.task + ' ' + r.o).toLowerCase().indexOf(q) > -1; });
+    $('#invTbl tbody').innerHTML = rows.map(function (r) {
+      return '<tr><td><a href="' + esc(r.f) + '" target="_blank" rel="noopener"><code>' + esc(r.f.replace('assets/', '')) + '</code></a></td><td>' + esc(r.kind) + '</td><td>' + esc(r.task) + '</td><td>' + fmtSize(r.size) + '</td><td>' + esc(r.o) + '</td></tr>';
+    }).join('');
+    var total = rows.reduce(function (a, r) { return a + (r.size || 0); }, 0);
+    $('#invCount').textContent = rows.length + ' archivos · ' + fmtSize(total);
+  }
+  renderInv(''); $('#invSearch').addEventListener('input', function (e) { renderInv(e.target.value); });
+
+  /* ---------- modal ---------- */
+  var modal = $('#modal'), cur = null, curTab = null, lastFocus = null;
+  function get3D() { return window.JDG3D; }
+  function openTask(id) {
+    var t = byId[id]; if (!t) return;
+    cur = t; lastFocus = document.activeElement;
+    $('#mNum').textContent = t.num; $('#mTitle').textContent = t.title; $('#mAut').textContent = t.autoria;
+    $('#mAut').className = 'tag ' + (/Equipo/.test(t.autoria) ? 'team' : /pareja/.test(t.autoria) ? '' : 'me');
+    var cnt = { '3d': t.fbx.length, video: t.videos.length, img: t.images.length, docs: t.docs.length };
+    $$('#mTabs button').forEach(function (b) {
+      var base = { '3d': 'Visor 3D Interactivo', video: 'Video / Playblast', img: 'Capturas & Evidencia', docs: 'Documentos' }[b.dataset.tab];
+      b.textContent = base + ' (' + cnt[b.dataset.tab] + ')'; b.disabled = !cnt[b.dataset.tab];
+    });
+    var n = NOTES[t.id] || {};
+    $('#mSide').innerHTML = '<h4>Resumen</h4><p>' + esc(t.summary) + '</p>' +
+      '<h4>Lo que hice yo</h4><ul>' + (n.mine || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
+      (n.team ? '<h4>Aportes de mis compañeras y compañeros</h4><ul>' + n.team.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' : '') +
+      '<h4>Por qué</h4><p>' + esc(n.why || '') + '</p>' +
+      '<h4>Autoría</h4><p>' + esc(t.autoria) + '</p>';
+    modal.classList.add('open'); document.body.style.overflow = 'hidden';
+    var first = t.videos.length ? 'video' : t.fbx.length ? '3d' : t.images.length ? 'img' : 'docs';
+    showTab(first);
+    $('#mClose').focus();
+  }
+  function stopMedia(root) { $$('video', root).forEach(function (v) { v.pause(); }); }
+  function showTab(tab) {
+    curTab = tab; var t = cur;
+    $$('#mTabs button').forEach(function (b) { b.setAttribute('aria-selected', String(b.dataset.tab === tab)); });
+    var c = $('#mContent'); stopMedia(c);
+    var slot = $('#m3dSlot');
+    if (tab === '3d') {
+      slot.hidden = false; c.innerHTML = '';
+      slot.appendChild($('#viewer'));
+      var v3 = get3D();
+      if (v3) v3.setContext(t.id); else window.__pendingCtx = t.id;
+      return;
+    }
+    restoreViewer(); slot.hidden = true;
+    if (tab === 'video') {
+      c.innerHTML = '<div class="vid-main"><video id="mVideo" controls playsinline preload="metadata"></video></div><div class="vid-list">' +
+        t.videos.map(function (v, i) { return '<button class="btn" type="button" data-v="' + i + '">' + esc(v.label) + ' <span class="tag">' + esc(v.source) + '</span></button>'; }).join('') + '</div>' +
+        '<p class="muted" style="font-size:.85rem;margin-top:10px">Los videos se muestran tal como los grabé en Maya (playblast) o Unity, para que se vean el escenario referenciado, las transiciones del Animator y la composición final.</p>';
+      var setV = function (i) { var v = $('#mVideo'); v.src = t.videos[i].file; $$('.vid-list .btn', c).forEach(function (b) { b.classList.toggle('primary', +b.dataset.v === i); }); var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+      c.querySelector('.vid-list').addEventListener('click', function (e) { var b = e.target.closest('[data-v]'); if (b) setV(+b.dataset.v); });
+      setV(0);
+    } else if (tab === 'img') {
+      c.innerHTML = '<div class="shots">' + t.images.map(function (im, i) { return '<button class="shot" type="button" data-lb="' + i + '"><img loading="lazy" src="' + esc(im.file) + '" alt="' + esc(im.label) + '"><span>' + esc(im.label) + '</span></button>'; }).join('') + '</div>';
+      c.querySelector('.shots').addEventListener('click', function (e) { var b = e.target.closest('[data-lb]'); if (b) openLB(t.images, +b.dataset.lb); });
+    } else {
+      c.innerHTML = t.docs.length ? '<div class="docs">' + t.docs.map(function (d) {
+        var ext = d.external ? 'link' : d.file.split('.').pop();
+        return '<a class="doc" href="' + esc(d.file) + '" target="_blank" rel="noopener"' + (d.external ? '' : ' download') + '><span class="ext">' + esc(ext) + '</span><span>' + esc(d.label) + '</span></a>';
+      }).join('') + '</div>' : '<div class="empty">Esta entrega no tiene documentos adjuntos.</div>';
+    }
+  }
+  function restoreViewer() { var v = $('#viewer'); if (v.parentNode !== $('#inspectorSlot')) $('#inspectorSlot').appendChild(v); }
+  function closeModal() {
+    stopMedia($('#mContent')); restoreViewer(); $('#m3dSlot').hidden = true; $('#mContent').innerHTML = '';
+    modal.classList.remove('open'); document.body.style.overflow = '';
+    var v3 = get3D(); if (v3) v3.setContext(null);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  $('#mTabs').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b && !b.disabled) showTab(b.dataset.tab); });
+  $('#mClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+
+  /* ---------- lightbox ---------- */
+  var lbList = [], lbI = 0;
+  function openLB(list, i) { lbList = list; lbI = i; drawLB(); $('#lb').classList.add('open'); }
+  function drawLB() { var it = lbList[lbI]; $('#lbImg').src = it.file; $('#lbImg').alt = it.label; $('#lbCap').textContent = it.label + ' · ' + (lbI + 1) + '/' + lbList.length; }
+  function stepLB(d) { lbI = (lbI + d + lbList.length) % lbList.length; drawLB(); }
+  $('#lbPrev').onclick = function () { stepLB(-1); }; $('#lbNext').onclick = function () { stepLB(1); };
+  $('#lbClose').onclick = function () { $('#lb').classList.remove('open'); };
+  $('#lb').addEventListener('click', function (e) { if (e.target.id === 'lb') $('#lb').classList.remove('open'); });
+
+  /* ---------- presentación ---------- */
+  var slides = [];
+  function media(t) {
+    var v = t.videos[0], im = t.images[0];
+    if (t.id === 'task07' && im) return '<img src="' + esc(im.file) + '" alt="' + esc(im.label) + '">';
+    if (v) return '<video muted loop playsinline preload="none" data-src="' + esc(v.file) + '"></video>';
+    if (im) return '<img src="' + esc(im.file) + '" alt="' + esc(im.label) + '">';
+    return '<div style="text-align:center"><div style="font-family:var(--display);font-weight:800;font-size:clamp(3rem,10vw,7rem);color:var(--accent)">' + (GLYPH[t.id] || '') + '</div><p class="muted">' + t.fbx.length + ' FBX en el Inspector 3D</p></div>';
+  }
+  slides.push({ solo: true, html: '<span class="k">Animación 3D · Universidad EAFIT</span><h2>jv <em>portfolio</em></h2><p>Juliana Vieira — Portafolio de Animación 3D</p><p class="muted">Mi progresión de la Task 03 a la Task 07 y la entrega final en equipo Leyend-itas.</p>' });
+  slides.push({ solo: true, html: '<span class="k">Mi enfoque</span><h2>De primitivas a <em>Ita Naranja</em></h2><ul><li>Proxy en primitivas con rig HumanIK y prueba de movimiento (Task 03).</li><li>Tres idles con intensidades distintas (Tasks 04–05).</li><li>Ciclos Run y Jump (Task 06).</li><li>UVs, malla HIGH, horneado, LODs, pesos y textura Naranja (Task 07, en pareja).</li><li>Tráiler y cinemática con mi equipo (Entrega Final).</li></ul>' });
+  M.tasks.forEach(function (t) {
+    var n = NOTES[t.id] || {};
+    slides.push({ html: '<div><span class="k">' + (t.id === 'final' ? 'Entrega final · ' : 'Task ' + t.num.replace('·', '–') + ' · ') + esc(t.autoria) + '</span><h2>' + esc(t.title) + '</h2><p>' + esc(t.summary) + '</p><ul>' + (n.mine || []).slice(0, 4).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div><div class="pres-media">' + media(t) + '</div>' });
+  });
+  slides.push({ solo: true, html: '<span class="k">Proceso iterativo</span><h2>Cuatro <em>iteraciones</em></h2><ul>' + ITER.map(function (it) { return '<li><strong>' + esc(it.t.split(' · ')[0]) + ':</strong> ' + esc(it.d) + '</li>'; }).join('') + '</ul>' });
+  slides.push({ solo: true, html: '<span class="k">Créditos · ficha técnica del equipo</span><h2>Equipo <em>Leyend-itas</em></h2><div class="tbl-wrap"><table><tbody>' + M.team.map(function (m) { return '<tr class="' + (m.me ? 'me' : '') + '"><td><strong>' + esc(m.name) + '</strong></td><td>' + esc(m.role) + '</td></tr>'; }).join('') + '</tbody></table></div>' });
+  slides.push({ solo: true, html: '<span class="k">Cierre</span><h2>Gracias.</h2><p>Pensar cada decisión en función de cómo se va a ver en pantalla: eso es lo que me llevo de este semestre.</p><p class="muted">— Juliana Vieira · jv portfolio</p>' });
+  var pres = $('#pres'), pi = 0;
+  function drawSlide() {
+    var s = slides[pi], box = $('#presSlide');
+    stopMedia(box);
+    box.className = 'pres-slide' + (s.solo ? ' solo' : '');
+    box.innerHTML = s.html;
+    $$('video[data-src]', box).forEach(function (v) { v.src = v.dataset.src; var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+    $('#presProg').style.width = ((pi + 1) / slides.length * 100) + '%';
+    $('#presCnt').textContent = (pi + 1) + ' / ' + slides.length;
+  }
+  function presOpen() { if (modal.classList.contains('open')) closeModal(); pres.classList.add('open'); document.body.style.overflow = 'hidden'; drawSlide(); var v3 = get3D(); if (v3) v3.setPaused(true); }
+  function presClose() { stopMedia($('#presSlide')); $('#presSlide').innerHTML = ''; pres.classList.remove('open'); document.body.style.overflow = ''; var v3 = get3D(); if (v3) v3.setPaused(false); }
+  function presStep(d) { pi = Math.max(0, Math.min(slides.length - 1, pi + d)); drawSlide(); }
+  $('#btnPresent').onclick = presOpen; $$('[data-present]').forEach(function (b) { b.onclick = presOpen; });
+  $('#presPrev').onclick = function () { presStep(-1); }; $('#presNext').onclick = function () { presStep(1); }; $('#presExit').onclick = presClose;
+
+  document.addEventListener('keydown', function (e) {
+    var tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'select' || tag === 'textarea' || e.ctrlKey || e.metaKey || e.altKey) return;
+    var lbOpen = $('#lb').classList.contains('open');
+    if (lbOpen) { if (e.key === 'Escape') $('#lb').classList.remove('open'); if (e.key === 'ArrowLeft') stepLB(-1); if (e.key === 'ArrowRight') stepLB(1); return; }
+    if (e.key === 'p' || e.key === 'P') { e.preventDefault(); pres.classList.contains('open') ? presClose() : presOpen(); return; }
+    if (pres.classList.contains('open')) {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); presStep(1); }
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); presStep(-1); }
+      if (e.key === 'Escape') presClose();
+      return;
+    }
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  /* nav activa */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (ents) { ents.forEach(function (en) { if (en.isIntersecting) $$('.nav a').forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + en.target.id); }); }); }, { rootMargin: '-45% 0px -50% 0px' });
+    $$('section.block').forEach(function (s) { io.observe(s); });
+  }
+  window.JDG_UI = { openTask: openTask, isFile: IS_FILE };
+})();
+</script>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+/* =====================================================================
+   Visor FBX — Three.js r160 · FBXLoader · OrbitControls · AnimationMixer
+   ===================================================================== */
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+
+THREE.Cache.enabled = true;
+const M = window.JDG_MANIFEST;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+/* Reasigna pistas de un clip a los nodos del modelo (ignora namespaces como CHR_Ita_TPose:) */
+function retargetClips(clips, model) {
+  const names = new Set();
+  model.traverse(o => { if (o.name) names.add(o.name); });
+  const sorted = [...names].sort((a, b) => b.length - a.length);
+  const memo = new Map();
+  const resolve = n => {
+    if (names.has(n)) return n;
+    if (memo.has(n)) return memo.get(n);
+    const hit = sorted.find(s => n.endsWith(s)) || null;
+    memo.set(n, hit); return hit;
+  };
+  return clips.map(clip => {
+    const tracks = [];
+    for (const t of clip.tracks) {
+      const dot = t.name.indexOf('.');
+      const target = resolve(t.name.slice(0, dot));
+      if (!target) continue;
+      const nt = t.clone(); nt.name = target + t.name.slice(dot); tracks.push(nt);
+    }
+    return new THREE.AnimationClip(clip.name, clip.duration, tracks);
+  }).filter(c => c.tracks.length);
+}
+
+/* Maya exporta con el tiempo absoluto de la escena (p. ej. un Run que empieza en el frame 275):
+   recorto el clip al rango real de keys para que la línea de tiempo empiece en 0. */
+function trimClip(clip) {
+  let start = Infinity, end = 0;
+  for (const t of clip.tracks) {
+    if (t.times.length < 2) continue;
+    start = Math.min(start, t.times[0]); end = Math.max(end, t.times[t.times.length - 1]);
+  }
+  if (!isFinite(start) || end - start < 1 / 30) return clip;
+  if (start > 1 / 48) {
+    const c = clip.clone();
+    c.tracks.forEach(t => { t.shift(-start); t.trim(0, end - start); });
+    c.duration = end - start;
+    return c;
+  }
+  return clip;
+}
+
+class Viewer {
+  constructor() {
+    this.el = $('#viewer'); this.host = $('#vCanvas');
+    this.statusEl = $('#vStatus'); this.statusText = $('#vStatusText'); this.bar = $('#vBar');
+    this.lib = []; this.ctx = null; this.token = 0; this.paused = false;
+    this.mode = 'textured'; this.speed = 1; this.loop = true; this.playing = true; this.showSkel = false;
+    this.meshes = []; this.clips = []; this.action = null; this.mixer = null; this.model = null;
+
+    const r = this.renderer = new THREE.WebGLRenderer({ antialias: true });
+    r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    r.outputColorSpace = THREE.SRGBColorSpace;
+    r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.host.appendChild(r.domElement);
+
+    const s = this.scene = new THREE.Scene();
+    s.background = new THREE.Color(0xefe6d8);
+    this.camera = new THREE.PerspectiveCamera(35, 1, 0.01, 1000);
+    this.controls = new OrbitControls(this.camera, r.domElement);
+    this.controls.enableDamping = true; this.controls.dampingFactor = 0.08;
+
+    s.add(new THREE.HemisphereLight(0xffffff, 0x3b3a40, 1.4));
+    const key = this.key = new THREE.DirectionalLight(0xffffff, 2.2);
+    key.position.set(3, 6, 4); key.castShadow = true; key.shadow.mapSize.set(1024, 1024);
+    Object.assign(key.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4, near: 0.1, far: 30 });
+    s.add(key);
+    const rim = new THREE.DirectionalLight(0x9db7ff, 1.1); rim.position.set(-4, 3, -4); s.add(rim);
+    const ground = this.ground = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.18 }));
+    ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; s.add(ground);
+    this.grid = new THREE.GridHelper(8, 16, 0xb4a48d, 0xd6c9b5); s.add(this.grid);
+
+    this.wrap = new THREE.Group(); s.add(this.wrap);
+    this.wireMat = new THREE.MeshBasicMaterial({ color: 0x1d1813, wireframe: true });
+    this.solidMat = new THREE.MeshStandardMaterial({ color: 0xd9d4c7, roughness: 0.75, metalness: 0 });
+    this.xrayMat = new THREE.MeshBasicMaterial({ color: 0xff5b1f, transparent: true, opacity: 0.14, depthWrite: false, side: THREE.DoubleSide });
+
+    this.clock = new THREE.Clock();
+    new ResizeObserver(() => this.resize()).observe(this.host);
+    this.visible = true;
+    if ('IntersectionObserver' in window) new IntersectionObserver(e => { this.visible = e[0].isIntersecting; }).observe(this.host);
+    r.setAnimationLoop(() => this.tick());
+    this.bindUI();
+    this.buildLibrary();
+  }
+
+  /* ---------- UI ---------- */
+  bindUI() {
+    $('#vModel').addEventListener('change', e => this.loadIndex(+e.target.value));
+    $('#vClip').addEventListener('change', e => this.playClip(+e.target.value));
+    $('#vPlay').addEventListener('click', () => this.togglePlay());
+    $('#vLoop').addEventListener('click', e => { this.loop = !this.loop; e.currentTarget.setAttribute('aria-pressed', String(this.loop)); this.applyLoop(); });
+    $$('[data-speed]', this.el).forEach(b => b.addEventListener('click', () => {
+      this.speed = +b.dataset.speed; $$('[data-speed]', this.el).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      if (this.mixer) this.mixer.timeScale = this.speed;
+    }));
+    $$('[data-mode]', this.el).forEach(b => b.addEventListener('click', () => {
+      this.mode = b.dataset.mode; $$('[data-mode]', this.el).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      this.applyMode();
+    }));
+    $('#vSkel').addEventListener('click', e => { this.showSkel = !this.showSkel; e.currentTarget.setAttribute('aria-pressed', String(this.showSkel)); this.applySkel(); });
+    $('#vGrid').addEventListener('click', e => { const on = !this.grid.visible; this.grid.visible = on; e.currentTarget.setAttribute('aria-pressed', String(on)); });
+    $('#vReset').addEventListener('click', () => this.resetCam());
+    const scrub = $('#vScrub');
+    scrub.addEventListener('pointerdown', () => { this.scrubbing = true; });
+    window.addEventListener('pointerup', () => { this.scrubbing = false; });
+    scrub.addEventListener('input', () => {
+      if (!this.action) return;
+      const d = this.action.getClip().duration;
+      this.action.paused = false; this.action.enabled = true;
+      this.action.time = scrub.value / 1000 * d; this.mixer.update(0);
+      if (!this.playing) this.action.paused = true;
+      this.updateTime();
+    });
+    $('#vUpload').addEventListener('change', e => { if (e.target.files.length) this.loadFiles(e.target.files); e.target.value = ''; });
+    ['dragenter', 'dragover'].forEach(ev => this.el.addEventListener(ev, e => { e.preventDefault(); this.el.classList.add('dragging'); }));
+    ['dragleave', 'drop'].forEach(ev => this.el.addEventListener(ev, e => { e.preventDefault(); if (ev === 'drop' || !this.el.contains(e.relatedTarget)) this.el.classList.remove('dragging'); }));
+    this.el.addEventListener('drop', e => { if (e.dataTransfer.files.length) this.loadFiles(e.dataTransfer.files); });
+    this.el.addEventListener('keydown', e => { if (e.key === ' ' && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'SELECT') { e.preventDefault(); this.togglePlay(); } });
+    this.renderer.domElement.tabIndex = 0;
+  }
+
+  buildLibrary() {
+    this.lib = [];
+    M.tasks.forEach(t => t.fbx.forEach(f => this.lib.push({ ...f, task: t.id, group: t.id === 'final' ? 'Entrega Final' : 'Task ' + t.num })));
+    this.fillSelect();
+  }
+  fillSelect(selected) {
+    const sel = $('#vModel');
+    const items = this.lib.map((e, i) => ({ e, i })).filter(x => !this.ctx || x.e.task === this.ctx || x.e.task === 'upload');
+    const groups = {};
+    items.forEach(x => (groups[x.e.group] ||= []).push(x));
+    sel.innerHTML = Object.entries(groups).map(([g, xs]) => `<optgroup label="${g}">` + xs.map(x => `<option value="${x.i}">${x.e.label} — ${x.e.file.split('/').pop()}</option>`).join('') + '</optgroup>').join('');
+    if (selected != null) sel.value = String(selected);
+    return items;
+  }
+  setContext(taskId) {
+    this.ctx = taskId;
+    const items = this.fillSelect();
+    if (taskId) { if (items.length) this.loadIndex(items[0].i); }
+    else if (this.current != null) $('#vModel').value = String(this.current);
+    requestAnimationFrame(() => this.resize());
+  }
+  setPaused(p) { this.paused = p; }
+
+  status(msg, opts = {}) {
+    if (!msg) { this.statusEl.hidden = true; return; }
+    this.statusEl.hidden = false; this.statusText.innerHTML = msg;
+    this.statusEl.classList.toggle('err', !!opts.err);
+    this.bar.parentElement.style.display = opts.progress == null ? 'none' : 'block';
+    if (opts.progress != null) this.bar.style.width = Math.round(opts.progress * 100) + '%';
+  }
+
+  /* ---------- carga ---------- */
+  loadFBX(url, token) {
+    return new Promise((resolve, reject) => {
+      // Las texturas se buscan siempre junto al FBX (Mixamo y Maya guardan rutas absolutas de otra máquina)
+      const dir = url.slice(0, url.lastIndexOf('/') + 1);
+      const manager = new THREE.LoadingManager();
+      manager.setURLModifier(u => /\.(png|jpe?g|tga|tif)$/i.test(u) && !/^(blob|data):/.test(u) ? dir + decodeURIComponent(u.split(/[\\/]/).pop()) : u);
+      const loader = new FBXLoader(manager);
+      loader.load(url, resolve, ev => {
+        if (token !== this.token) return;
+        const p = ev.total ? ev.loaded / ev.total : 0;
+        this.status(`Cargando <b>${url.split('/').pop()}</b>… ${ev.total ? Math.round(p * 100) + '%' : (ev.loaded / 1048576).toFixed(1) + ' MB'}`, { progress: p });
+      }, reject);
+    });
+  }
+  async loadIndex(i) {
+    const e = this.lib[i]; if (!e) return;
+    this.current = i; $('#vModel').value = String(i);
+    this.fitExclude = e.fitExclude || null; this.only = e.only || null;
+    if (e.object) { this.setModel(e.object, e.clips, e.label); return; }
+    const token = ++this.token;
+    if (location.protocol === 'file:') {
+      this.clear();
+      this.status('Abriste el portafolio como archivo local: el navegador bloquea leer <b>' + e.file.split('/').pop() + '</b>.<br>Usa el enlace publicado o arrastra el .fbx aquí (<b>+ Subir FBX</b>).', { err: true });
+      return;
+    }
+    this.status('Cargando…', { progress: 0 });
+    try {
+      let model, clips;
+      if (e.base) {
+        const [base, src] = await Promise.all([this.loadFBX(e.base, token), this.loadFBX(e.file, token)]);
+        model = base; clips = retargetClips(src.animations, base);
+      } else {
+        model = await this.loadFBX(e.file, token); clips = model.animations;
+      }
+      if (token !== this.token) return;
+      if (e.textures) await this.applyTextures(model, e.textures);
+      if (token !== this.token) return;
+      this.setModel(model, clips, e.label);
+    } catch (err) {
+      if (token !== this.token) return;
+      console.warn('[jv] FBX', e.file, err);
+      this.clear();
+      this.status('No pude cargar <b>' + e.file.split('/').pop() + '</b>. Arrástralo al visor o usa <b>+ Subir FBX</b>.', { err: true });
+    }
+  }
+  async applyTextures(model, tex) {
+    const tl = new THREE.TextureLoader();
+    const load = u => new Promise(res => tl.load(u, t => res(t), undefined, () => res(null)));
+    const [map, normalMap, aoMap] = await Promise.all([tex.map, tex.normalMap, tex.aoMap].map(u => u ? load(u) : null));
+    if (map) map.colorSpace = THREE.SRGBColorSpace;
+    model.traverse(o => {
+      if (!o.isMesh) return;
+      (Array.isArray(o.material) ? o.material : [o.material]).forEach(m => {
+        if (map && !m.map) { m.map = map; m.color && m.color.set(0xffffff); }
+        if (normalMap && !m.normalMap && 'normalMap' in m) m.normalMap = normalMap;
+        if (aoMap && !m.aoMap && 'aoMap' in m) { m.aoMap = aoMap; m.aoMapIntensity = 0.8; }
+        m.needsUpdate = true;
+      });
+    });
+  }
+  async loadFiles(fileList) {
+    const files = [...fileList];
+    const fbx = files.filter(f => /\.fbx$/i.test(f.name));
+    if (!fbx.length) { this.status('Agrega al menos un archivo <b>.fbx</b> (puedes soltar sus texturas junto a él).', { err: true }); return; }
+    const urls = {};
+    files.filter(f => !/\.fbx$/i.test(f.name)).forEach(f => { urls[f.name.toLowerCase()] = URL.createObjectURL(f); });
+    const manager = new THREE.LoadingManager();
+    manager.setURLModifier(u => { const b = decodeURIComponent(u.split(/[\\/]/).pop() || '').toLowerCase(); return urls[b] || u; });
+    const loader = new FBXLoader(manager);
+    const token = ++this.token;
+    this.status('Leyendo ' + fbx[0].name + '…', { progress: 0.3 });
+    try {
+      const model = loader.parse(await fbx[0].arrayBuffer(), '');
+      let clips = model.animations.slice();
+      for (const f of fbx.slice(1)) {
+        const o = loader.parse(await f.arrayBuffer(), '');
+        clips = clips.concat(retargetClips(o.animations, model).map(c => { c.name = f.name.replace(/\.fbx$/i, ''); return c; }));
+      }
+      if (token !== this.token) return;
+      const entry = { label: 'Subido · ' + fbx[0].name, file: fbx[0].name, task: 'upload', group: 'Mis archivos subidos', object: model, clips };
+      this.lib.push(entry); this.current = this.lib.length - 1; this.fitExclude = null; this.only = null;
+      this.fillSelect(this.current);
+      this.setModel(model, clips, entry.label);
+    } catch (err) {
+      console.warn('[jv] upload', err);
+      this.status('Ese archivo no parece un FBX válido (binario 7.x o ASCII).', { err: true });
+    }
+  }
+
+  clear() {
+    if (this.mixer) { this.mixer.stopAllAction(); this.mixer = null; }
+    if (this.skel) { this.scene.remove(this.skel); this.skel.dispose && this.skel.dispose(); this.skel = null; }
+    if (this.joints) { this.scene.remove(this.joints); this.joints.geometry.dispose(); this.joints = null; }
+    if (this.model) this.wrap.remove(this.model);
+    this.model = null; this.meshes = []; this.clips = []; this.action = null; this.bones = [];
+    $('#vClip').innerHTML = '<option>—</option>'; $('#vClip').disabled = true;
+    this.updateTime();
+  }
+
+  setModel(model, clips, label) {
+    this.clear();
+    this.model = model;
+    this.wrap.scale.setScalar(1); this.wrap.position.set(0, 0, 0);
+    this.wrap.add(model);
+    this.bones = [];
+    if (this.only) { const re = new RegExp(this.only, 'i'); model.children.forEach(c => { c.visible = re.test(c.name); }); }
+    model.traverseVisible(o => {
+      if (o.isBone) this.bones.push(o);
+      if (o.isMesh) {
+        o.castShadow = true; o.receiveShadow = true;
+        if (o.isSkinnedMesh) o.frustumCulled = false;
+        (Array.isArray(o.material) ? o.material : [o.material]).forEach(m => {
+          if (m.opacity < 0.05) { m.opacity = 1; m.transparent = false; }
+          if (m.map) m.map.colorSpace = THREE.SRGBColorSpace;
+          if ('shininess' in m && m.shininess > 60) m.shininess = 30;
+        });
+        o.userData.orig = o.material; this.meshes.push(o);
+      }
+    });
+    this.mixer = new THREE.AnimationMixer(model);
+    this.mixer.timeScale = this.speed;
+    this.mixer.addEventListener('finished', () => { this.playing = false; this.syncPlay(); });
+    const moves = c => c.tracks.some(t => { const n = t.getValueSize(), v = t.values; for (let i = n; i < v.length; i++) if (Math.abs(v[i] - v[i % n]) > 1e-4) return true; return false; });
+    this.clips = (clips || []).filter(c => c.duration > 0 && c.tracks.length && moves(c)).map(trimClip);
+    if (this.clips.length) { this.action = this.mixer.clipAction(this.clips[0]); this.action.play(); this.mixer.update(0); }
+
+    // normalizar escala y centrar (actualiza desde el contenedor: si no, hereda la escala del modelo anterior)
+    this.wrap.updateMatrixWorld(true);
+    let box = new THREE.Box3();
+    const ex = this.fitExclude ? new RegExp(this.fitExclude, 'i') : null;
+    this.meshes.forEach(m => {
+      if (ex && ex.test(m.name)) { (Array.isArray(m.material) ? m.material : [m.material]).forEach(x => { x.side = THREE.DoubleSide; }); m.castShadow = false; return; }
+      box.expandByObject(m);
+    });
+    if (box.isEmpty()) box.setFromObject(model);
+    if (box.isEmpty()) box = new THREE.Box3(new THREE.Vector3(-1, 0, -1), new THREE.Vector3(1, 2, 1));
+    const size = box.getSize(new THREE.Vector3()); const center = box.getCenter(new THREE.Vector3());
+    const k = 2.4 / Math.max(size.x, size.y, size.z, 1e-6);
+    this.wrap.scale.setScalar(k);
+    this.wrap.position.set(-center.x * k, -box.min.y * k, -center.z * k);
+    this.wrap.updateMatrixWorld(true);
+    this.fitSize = new THREE.Vector3(size.x * k, size.y * k, size.z * k);
+
+    // esqueleto + joints
+    if (this.bones.length) {
+      this.skel = new THREE.SkeletonHelper(model);
+      this.skel.material.depthTest = false; this.skel.material.transparent = true; this.skel.renderOrder = 999;
+      this.scene.add(this.skel);
+      const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(this.bones.length * 3), 3));
+      this.joints = new THREE.Points(g, new THREE.PointsMaterial({ color: 0xff6b3d, size: 6, sizeAttenuation: false, depthTest: false }));
+      this.joints.renderOrder = 1000; this.joints.frustumCulled = false; this.scene.add(this.joints);
+    }
+    $('#vSkel').disabled = !this.bones.length;
+    this.applySkel(); this.applyMode();
+
+    // clips
+    const sel = $('#vClip');
+    if (this.clips.length) {
+      sel.disabled = false;
+      sel.innerHTML = this.clips.map((c, i) => `<option value="${i}">${(this.clips.length === 1 ? label : (c.name || 'Clip ' + (i + 1))).replace(/</g, '&lt;')} · ${c.duration.toFixed(2)} s</option>`).join('');
+    } else {
+      sel.disabled = true; sel.innerHTML = '<option>Sin animación (pose estática)</option>';
+    }
+    this.playing = true; this.applyLoop(); this.syncPlay();
+    this.resetCam();
+    const tris = this.meshes.reduce((a, m) => a + (m.geometry.index ? m.geometry.index.count : m.geometry.attributes.position.count) / 3, 0);
+    $('#vHud').textContent = `${label} · ${this.meshes.length} malla(s) · ${Math.round(tris).toLocaleString('es-CO')} tris · ${this.bones.length} joints · ${this.clips.length} clip(s)`;
+    this.status(null);
+  }
+
+  playClip(i) {
+    if (!this.mixer || !this.clips[i]) return;
+    this.mixer.stopAllAction();
+    this.action = this.mixer.clipAction(this.clips[i]); this.action.reset(); this.action.play();
+    this.playing = true; this.applyLoop(); this.syncPlay();
+  }
+  applyLoop() {
+    if (!this.action) return;
+    this.action.setLoop(this.loop ? THREE.LoopRepeat : THREE.LoopOnce, Infinity);
+    this.action.clampWhenFinished = !this.loop;
+  }
+  togglePlay() {
+    if (!this.action) return;
+    if (!this.playing && !this.loop && this.action.time >= this.action.getClip().duration - 1e-3) { this.action.reset(); this.action.play(); }
+    this.playing = !this.playing; this.syncPlay();
+  }
+  syncPlay() {
+    if (this.action) { this.action.paused = !this.playing; if (this.playing) this.action.enabled = true; }
+    const b = $('#vPlay'); b.textContent = this.playing ? '❚❚' : '▶'; b.setAttribute('aria-label', this.playing ? 'Pausar' : 'Reproducir');
+    b.disabled = !this.action;
+  }
+  applyMode() {
+    for (const m of this.meshes) {
+      const orig = m.userData.orig;
+      const pick = this.mode === 'wire' ? this.wireMat : this.mode === 'xray' ? this.xrayMat : this.mode === 'solid' ? this.solidMat : null;
+      m.material = pick ? (Array.isArray(orig) ? orig.map(() => pick) : pick) : orig;
+      m.castShadow = this.mode === 'textured' || this.mode === 'solid';
+    }
+    this.ground.visible = this.mode !== 'xray';
+    this.applySkel();
+  }
+  applySkel() {
+    const on = this.showSkel || this.mode === 'xray';
+    if (this.skel) this.skel.visible = on;
+    if (this.joints) this.joints.visible = on;
+  }
+  resetCam() {
+    const s = this.fitSize || new THREE.Vector3(2, 2, 2);
+    const h = s.y, target = new THREE.Vector3(0, h * 0.5, 0);
+    const radius = s.length() * 0.5;
+    const vf = THREE.MathUtils.degToRad(this.camera.fov);
+    const hf = 2 * Math.atan(Math.tan(vf / 2) * (this.camera.aspect || 1));
+    const dist = radius / Math.sin(Math.min(vf, hf) / 2) * 1.05;
+    const dir = new THREE.Vector3(0.55, 0.32, 1).normalize();
+    this.camera.position.copy(target).addScaledVector(dir, dist);
+    this.camera.near = dist / 200; this.camera.far = dist * 50; this.camera.updateProjectionMatrix();
+    this.controls.target.copy(target); this.controls.minDistance = dist * 0.1; this.controls.maxDistance = dist * 6; this.controls.update();
+  }
+  resize() {
+    const w = this.host.clientWidth, h = this.host.clientHeight;
+    if (!w || !h) return;
+    const first = this.camera.aspect === 1 && w / h !== 1;
+    this.renderer.setSize(w, h, false); this.camera.aspect = w / h; this.camera.updateProjectionMatrix();
+    if (first && this.model) this.resetCam();
+  }
+  updateTime() {
+    const t = $('#vTime'), sc = $('#vScrub');
+    if (!this.action) { t.textContent = '0.00 / 0.00 s'; sc.value = 0; sc.disabled = true; return; }
+    sc.disabled = false;
+    const d = this.action.getClip().duration, cur = Math.min(this.action.time, d);
+    t.textContent = `${cur.toFixed(2)} / ${d.toFixed(2)} s`;
+    if (!this.scrubbing) sc.value = String(Math.round(cur / d * 1000));
+  }
+  tick() {
+    const dt = Math.min(this.clock.getDelta(), 0.1);
+    if (this.paused || document.hidden || !this.visible || !this.host.clientWidth) return;
+    if (this.mixer && this.playing && !this.scrubbing) this.mixer.update(dt);
+    if (this.joints && this.joints.visible) {
+      const a = this.joints.geometry.attributes.position, v = new THREE.Vector3();
+      this.bones.forEach((b, i) => { b.getWorldPosition(v); a.setXYZ(i, v.x, v.y, v.z); });
+      a.needsUpdate = true;
+    }
+    this.frame = (this.frame || 0) + 1;
+    if (this.frame % 3 === 0) this.updateTime();
+    this.controls.update();
+    this.renderer.render(this.scene, this.camera);
+  }
+}
+
+try {
+  const v = new Viewer();
+  window.JDG3D = v;
+  const pending = window.__pendingCtx;
+  if (pending && $('#modal').classList.contains('open')) v.setContext(pending);
+  else {
+    const def = v.lib.findIndex(e => /ita_naranja\/Ita_Naranja_Walk/.test(e.file));
+    const start = () => v.loadIndex(def > -1 ? def : 0);
+    if (location.protocol === 'file:') start();
+    else if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(en => { if (en[0].isIntersecting && v.current == null) { io.disconnect(); start(); } }, { rootMargin: '300px' });
+      io.observe(v.host);
+    } else start();
+  }
+} catch (err) {
+  console.error('[jv] viewer', err);
+  const s = document.getElementById('vStatus'); s.hidden = false; s.classList.add('err');
+  document.getElementById('vStatusText').innerHTML = 'No se pudo iniciar WebGL / Three.js en este navegador. Los videos y capturas siguen disponibles.';
+}
+</script>
+<script>
+/* Si el CDN de Three.js no carga (sin internet), avisa en el visor sin romper el resto */
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    if (!window.JDG3D) {
+      var s = document.getElementById('vStatus'); s.hidden = false; s.classList.add('err');
+      document.getElementById('vStatusText').innerHTML = 'No pude descargar Three.js (revisa la conexión a internet). Los videos y capturas siguen disponibles.';
+    }
+  }, 6000);
+});
+</script>
+</body>
+</html>
